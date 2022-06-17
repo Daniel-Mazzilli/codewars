@@ -7,11 +7,11 @@ function firstNonRepeated(s) {
             if(i === j) {
                 continue;
             } else if(s[i] === s[j]) {
-                unique = null
+                unique = null;
                 break;
             }
         }
-        if(unique){
+        if(unique) {
             return s[i];
         }
     }
