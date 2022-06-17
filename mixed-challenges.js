@@ -1,8 +1,19 @@
-let arr = [1, 2, 3, 4, 5, 6];
-for(i = 1; i < arr.length; i += 2){
-    console.log(i, arr[i]);
-}
+// Return String of First Characters
 
+function makeString(s){
+    let arr = s.split(` `);
+    let str = ``;
+    for(const word of arr){
+        str += word[0];
+    }
+    return str;
+}
+console.log(makeString(`Hello Dan Hi Hello`));
+
+// let arr = [1, 2, 3, 4, 5, 6];
+// for(i = 1; i < arr.length; i += 2){
+//     console.log(i, arr[i]);
+// }
 
 
 // String.prototype.isUpperCase = function(str) {
@@ -17,6 +28,7 @@ for(i = 1; i < arr.length; i += 2){
 //     }
 // console.log(twoSort([`Bitcon`, `take`, `over`, `the`, `small`, `world`, `of`, `programming`]))
 
+
 // function shortcut (string) {
 //     let str = `aeiou`;
 //     for(let i = 0; i < string.length; i++){
@@ -30,6 +42,7 @@ for(i = 1; i < arr.length; i += 2){
 //     }
 //     return string;
 //   }
+
 
 // console.log(shortcut(`daniel`))
 // function repeatStr (n, s) {
