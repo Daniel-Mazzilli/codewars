@@ -1,14 +1,35 @@
+// The First Non Repeated Character In A String
+
+function firstNonRepeated(s) {
+    for(let i = 0; i < s.length; i++){
+        let unique = `yes`;
+        for(let j = 0; j < s.length; j++){
+            if(i === j) {
+                continue;
+            } else if(s[i] === s[j]) {
+                unique = null
+                break;
+            }
+        }
+        if(unique){
+            return s[i];
+        }
+    }
+    return null;
+}
+
+console.log(firstNonRepeated(`teeter`))
 // Return String of First Characters
 
-function makeString(s){
-    let arr = s.split(` `);
-    let str = ``;
-    for(const word of arr){
-        str += word[0];
-    }
-    return str;
-}
-console.log(makeString(`Hello Dan Hi Hello`));
+// function makeString(s){
+//     let arr = s.split(` `);
+//     let str = ``;
+//     for(const word of arr){
+//         str += word[0];
+//     }
+//     return str;
+// }
+// console.log(makeString(`Hello Dan Hi Hello`));
 
 // let arr = [1, 2, 3, 4, 5, 6];
 // for(i = 1; i < arr.length; i += 2){
