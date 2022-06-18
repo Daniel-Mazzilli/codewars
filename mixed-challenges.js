@@ -1,31 +1,44 @@
+// Is my string repeating the same character over and over ?
+function hasOneChar(s) {
+    let arr = s.split(``);
+    arr.sort();
+    if(arr.length > 1){
+      if(arr[0] !== arr[1] || arr[arr.length-2] !== arr[arr.length-1]){
+      return false;
+      }
+    }
+    return true;
+  }
+
+
 // simple string characters
 
-function solve(s){
-    let up = 0;
-    let low = 0;
-    let num = 0;
-    let other = 0;
-    let arr = [];
-    for(let i = 0; i < s.length; i++){
-        if(1 / Number(s[i])){
-            console.log(`num `, s[i])
-            num++;
-        } else if(`*'&~!@#$%^()-_+={[}]\|?/>.<,:;"`.includes(s[i])){
-            console.log(`other `, s[i])
-            other++;
-        } else if(s[i] === s[i].toUpperCase()){
-            console.log(`up `, s[i])
-            up++;
-        } else if(s[i] === s[i].toLowerCase()){
-            console.log(`low `, s[i])
-            low++;
-        }
-    }
-    arr.push(up, low, num, other);
-    return arr;
-}
+// function solve(s){
+//     let up = 0;
+//     let low = 0;
+//     let num = 0;
+//     let other = 0;
+//     let arr = [];
+//     for(let i = 0; i < s.length; i++){
+//         if(1 / Number(s[i])){
+//             console.log(`num `, s[i])
+//             num++;
+//         } else if(`*'&~!@#$%^()-_+={[}]\|?/>.<,:;"`.includes(s[i])){
+//             console.log(`other `, s[i])
+//             other++;
+//         } else if(s[i] === s[i].toUpperCase()){
+//             console.log(`up `, s[i])
+//             up++;
+//         } else if(s[i] === s[i].toLowerCase()){
+//             console.log(`low `, s[i])
+//             low++;
+//         }
+//     }
+//     arr.push(up, low, num, other);
+//     return arr;
+// }
 
-console.log(solve(`"@mw>0=QD-iAx!rp9TaG?o&M%l$34L.nbft"`))
+// console.log(solve(`"@mw>0=QD-iAx!rp9TaG?o&M%l$34L.nbft"`))
 
 // Unique string characters
 
