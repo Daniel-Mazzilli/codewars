@@ -1,24 +1,43 @@
-// The First Non Repeated Character In A String
+// Unique string characters
 
-function firstNonRepeated(s) {
-    for(let i = 0; i < s.length; i++){
-        let unique = `yes`;
-        for(let j = 0; j < s.length; j++){
-            if(i === j) {
-                continue;
-            } else if(s[i] === s[j]) {
-                unique = null;
-                break;
-            }
-        }
-        if(unique) {
-            return s[i];
+function solve(a, b){
+    let str = ``;
+    for(let i = 0; i < a.length; i++){
+        if(b.indexOf(a[i]) === -1){
+            str += a[i];
         }
     }
-    return null;
-}
+    for(let i = 0; i < b.length; i++){
+        if(a.indexOf(b[i]) === -1){
+            str += b[i];
+        }
+    }
+    return str;
+};
 
-console.log(firstNonRepeated(`teeter`))
+console.log(solve(`xyab`, `xzca`))
+
+// The First Non Repeated Character In A String
+
+// function firstNonRepeated(s) {
+//     for(let i = 0; i < s.length; i++){
+//         let unique = `yes`;
+//         for(let j = 0; j < s.length; j++){
+//             if(i === j) {
+//                 continue;
+//             } else if(s[i] === s[j]) {
+//                 unique = null;
+//                 break;
+//             }
+//         }
+//         if(unique) {
+//             return s[i];
+//         }
+//     }
+//     return null;
+// }
+
+// console.log(firstNonRepeated(`teeter`))
 // Return String of First Characters
 
 // function makeString(s){
