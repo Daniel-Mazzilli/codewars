@@ -1,21 +1,50 @@
+// simple string characters
+
+function solve(s){
+    let up = 0;
+    let low = 0;
+    let num = 0;
+    let other = 0;
+    let arr = [];
+    for(let i = 0; i < s.length; i++){
+        if(1 / Number(s[i])){
+            console.log(`num `, s[i])
+            num++;
+        } else if(`*'&~!@#$%^()-_+={[}]\|?/>.<,:;"`.includes(s[i])){
+            console.log(`other `, s[i])
+            other++;
+        } else if(s[i] === s[i].toUpperCase()){
+            console.log(`up `, s[i])
+            up++;
+        } else if(s[i] === s[i].toLowerCase()){
+            console.log(`low `, s[i])
+            low++;
+        }
+    }
+    arr.push(up, low, num, other);
+    return arr;
+}
+
+console.log(solve(`"@mw>0=QD-iAx!rp9TaG?o&M%l$34L.nbft"`))
+
 // Unique string characters
 
-function solve(a, b){
-    let str = ``;
-    for(let i = 0; i < a.length; i++){
-        if(b.indexOf(a[i]) === -1){
-            str += a[i];
-        }
-    }
-    for(let i = 0; i < b.length; i++){
-        if(a.indexOf(b[i]) === -1){
-            str += b[i];
-        }
-    }
-    return str;
-};
+// function solve(a, b){
+//     let str = ``;
+//     for(let i = 0; i < a.length; i++){
+//         if(b.indexOf(a[i]) === -1){
+//             str += a[i];
+//         }
+//     }
+//     for(let i = 0; i < b.length; i++){
+//         if(a.indexOf(b[i]) === -1){
+//             str += b[i];
+//         }
+//     }
+//     return str;
+// };
 
-console.log(solve(`xyab`, `xzca`))
+// console.log(solve(`xyab`, `xzca`))
 
 // The First Non Repeated Character In A String
 
