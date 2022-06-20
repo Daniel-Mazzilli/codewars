@@ -1,15 +1,34 @@
-// Is my string repeating the same character over and over ?
-function hasOneChar(s) {
-    let arr = s.split(``);
-    arr.sort();
-    if(arr.length > 1){
-      if(arr[0] !== arr[1] || arr[arr.length-2] !== arr[arr.length-1]){
-      return false;
-      }
+// Consecutive Vowels in a String
+function getTheVowels(word) {
+  let count = 0;
+  let vow = [`a`, `e`, `i`, `o`, `u`];
+  for(let i = 0; word.length > 0; i++){
+    let location = word.indexOf(vow[i])
+    if (i === 4){
+      i = -1;
     }
-    return true;
+    if(location === -1){
+      break;
+    } else{
+      count ++;
+      word = word.slice(location)
+    }
   }
+  return count;
+}
 
+console.log(getTheVowels(`agrtertyfikfmroyrntbvsukldkfa`))
+// Is my string repeating the same character over and over ?
+// function hasOneChar(s) {
+//     let arr = s.split(``);
+//     arr.sort();
+//     if(arr.length > 1){
+//       if(arr[0] !== arr[1] || arr[arr.length-2] !== arr[arr.length-1]){
+//       return false;
+//       }
+//     }
+//     return true;
+//   }
 
 // simple string characters
 
