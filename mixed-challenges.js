@@ -1,21 +1,27 @@
-// Consecutive Vowels in a String
-function getTheVowels(word) {
-  let count = 0;
-  let vow = [`a`, `e`, `i`, `o`, `u`];
-  for(let i = 0; word.length > 0; i++){
-    let location = word.indexOf(vow[i])
-    if (i === 4){
-      i = -1;
-    }
-    if(location === -1){
-      break;
-    } else{
-      count ++;
-      word = word.slice(location)
-    }
-  }
-  return count;
+// conv hash to array
+function convertHashToArray(hash){
+  arr = Object.entries(hash);
+  arr.sort();
+  return arr;
 }
+// Consecutive Vowels in a String
+// function getTheVowels(word) {
+//   let count = 0;
+//   let vow = [`a`, `e`, `i`, `o`, `u`];
+//   for(let i = 0; word.length > 0; i++){
+//     let location = word.indexOf(vow[i])
+//     if (i === 4){
+//       i = -1;
+//     }
+//     if(location === -1){
+//       break;
+//     } else{
+//       count ++;
+//       word = word.slice(location)
+//     }
+//   }
+//   return count;
+// }
 
 console.log(getTheVowels(`agrtertyfikfmroyrntbvsukldkfa`))
 // Is my string repeating the same character over and over ?
