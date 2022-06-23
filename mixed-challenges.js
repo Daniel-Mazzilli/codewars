@@ -1,19 +1,39 @@
+
+let person = {name:"Sally", city:"Glasgow", favourite_products:"toasters"}
+
+function personalise( campaign, person){
+  while(campaign.includes(`<NAME>`)){
+    campaign = campaign.replace(`<NAME>`, person.name);   
+  }
+  while(campaign.includes(`<CITY>`)){
+    campaign = campaign.replace(`<CITY>`, person.city);   
+  }
+  while(campaign.includes(`<FAVOURITE PRODUCTS>`)){
+    campaign = campaign.replace(`<FAVOURITE PRODUCTS>`, person.favourite_products);   
+  }
+  return campaign;
+}
+let message = `"Hello <NAME>","how is the weather in <CITY> today?","We wanted to let you know that <FAVOURITE PRODUCTS> are on sale today only!"`
+
+console.log(personalise(message, person))
+
+
 // // Find the Capitals
 
-function capital(capitals) {
-  let arr = [];
-  for(const cap of capitals) {
-    console.log(cap)
-      if(cap[`state`]) {
-        arr.push(`The capital of ${cap[`state`]} is ${cap[`capital`]}`);
-      } else if(cap[`country`]) {
-        arr.push(`The capital of ${cap[`country`]} is ${cap[`capital`]}`);
-      }
-    }
-    return arr;
-}
+// function capital(capitals) {
+//   let arr = [];
+//   for(const cap of capitals) {
+//     console.log(cap)
+//       if(cap[`state`]) {
+//         arr.push(`The capital of ${cap[`state`]} is ${cap[`capital`]}`);
+//       } else if(cap[`country`]) {
+//         arr.push(`The capital of ${cap[`country`]} is ${cap[`capital`]}`);
+//       }
+//     }
+//     return arr;
+// }
 
-console.log(capital([{"state" : 'Maine', capital: 'Augusta'}, {country: 'Spain', "capital" : "Madrid"}]))
+// console.log(capital([{"state" : 'Maine', capital: 'Augusta'}, {country: 'Spain', "capital" : "Madrid"}]))
 
 
 // conv hash to array
