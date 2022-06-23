@@ -1,9 +1,27 @@
-// conv hash to array
-function convertHashToArray(hash){
-  arr = Object.entries(hash);
-  arr.sort();
-  return arr;
+// // Find the Capitals
+
+function capital(capitals) {
+  let arr = [];
+  for(const cap of capitals) {
+    console.log(cap)
+      if(cap[`state`]) {
+        arr.push(`The capital of ${cap[`state`]} is ${cap[`capital`]}`);
+      } else if(cap[`country`]) {
+        arr.push(`The capital of ${cap[`country`]} is ${cap[`capital`]}`);
+      }
+    }
+    return arr;
 }
+
+console.log(capital([{"state" : 'Maine', capital: 'Augusta'}, {country: 'Spain', "capital" : "Madrid"}]))
+
+
+// conv hash to array
+// function convertHashToArray(hash){
+//   arr = Object.entries(hash);
+//   arr.sort();
+//   return arr;
+// }
 // Consecutive Vowels in a String
 // function getTheVowels(word) {
 //   let count = 0;
@@ -23,7 +41,7 @@ function convertHashToArray(hash){
 //   return count;
 // }
 
-console.log(getTheVowels(`agrtertyfikfmroyrntbvsukldkfa`))
+// console.log(getTheVowels(`agrtertyfikfmroyrntbvsukldkfa`))
 // Is my string repeating the same character over and over ?
 // function hasOneChar(s) {
 //     let arr = s.split(``);
