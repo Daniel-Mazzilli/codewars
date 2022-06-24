@@ -1,3 +1,4 @@
+// Personalising Spammy Marketing Emails
 
 let person = {name:"Sally", city:"Glasgow", favourite_products:"toasters"}
 
