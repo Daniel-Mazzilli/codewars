@@ -1,20 +1,39 @@
-// well of ideas - sorta hard coded a bit
-function well(x){
-    let goodCount = 0;
-    for(const arr of x) {
-      for(const item of arr) {
-        if(item[0] === `g` || item[0] === `G`) {
-          goodCount ++;
+// Find the odd int
+function findOdd(A) {
+    let counts = {};
+    for(const item of A) {
+        if(counts[item] === undefined) {
+            counts[item] = 1;
+        } else {
+            counts[item] ++;
         }
-      }
     }
-    if(goodCount > 2) {
-      return `I smell a series!`;
-    } else if (goodCount > 0) {
-      return `Publish!`;
+    for(const k in counts) {
+        if(counts[k] % 2) {
+            return Number(k);
+        }
     }
-    return `Fail!`;
-  }
+}
+console.log(findOdd([0, 1, 0, 1, 0]))
+
+// well of ideas - sorta hard coded a bit
+// function well(x){
+//     let goodCount = 0;
+//     for(const arr of x) {
+//       for(const item of arr) {
+//         if(item[0] === `g` || item[0] === `G`) {
+//           goodCount ++;
+//         }
+//       }
+//     }
+//     if(goodCount > 2) {
+//       return `I smell a series!`;
+//     } else if (goodCount > 0) {
+//       return `Publish!`;
+//     }
+//     return `Fail!`;
+//   }
+
 // numbers to objects
 // function numObj(s){
 //     let arr = [];
