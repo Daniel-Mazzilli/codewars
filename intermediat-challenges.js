@@ -1,3 +1,17 @@
+// two sum
+function twoSum(numbers, target) {
+    const arr = [];
+    for (let n1 = 0; n1 < numbers.length; n1++) {
+        for (let n2 = 0; n2 < numbers.length && n1 !== n2; n2++) {
+            if(numbers[n1] + numbers[n2] === target) {
+                arr.push(n1, n2);
+                return arr;
+            }
+        }
+    }
+    return arr;
+}
+
 // normalizing out of range array indexes
 // function normIndex(array, index) {
 //     let newInd = index % (array.length);
