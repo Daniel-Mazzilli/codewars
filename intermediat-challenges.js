@@ -1,3 +1,17 @@
+// normalizing out of range array indexes
+// function normIndex(array, index) {
+//     let newInd = index % (array.length);
+//     if (index < 0) {
+//         if (!(index % array.length)) {
+//             return array[0];
+//         }
+//         newInd += array.length;
+//     }
+//     return array[newInd];
+// }
+// const arr = [10, 82, 51, 17, 97, 69, 22, 22, 61, 99, 87];
+// console.log(normIndex(arr, - 11));
+
 // Sort the odd
 // function sortArray(arr) {
 //     let obj = {};
