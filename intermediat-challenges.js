@@ -1,20 +1,52 @@
-// represent array of numbers as ranges
+// represent array of numbers as ranges -- this one took a while
 function toRange(arr) {
-    const newArr = [];
-    let str = ``;
-    const arrSort = arr.sort((a, b) => a - b);
-    const arrUnique = [...new Set(arrSort)];
-    for (let i = 0; i < arrUnique.length; i++) {
-        if (arrUnique[i + 1] === arrUnique[i] + 1) {
-            newArr.push(arrUnique[i], arrUnique[i + 1]);
-        }
+  if (arr.length < 1) {
+    return "";
+  }
+  const arrSort = arr.sort((a, b) => a - b);
+  const arrUnique = [...new Set(arrSort)];
+  let newArr = [];
+  for (let i = 0; i < arrUnique.length; i++) {
+    if (arrUnique[i] === arrUnique[i - 1] + 1) {
+      newArr.push("_", arrUnique[i]);
+      if (newArr.length > 4 && newArr[newArr.length - 4].includes("_")) {
+        newArr[newArr.length - 4] = "";
+        newArr[newArr.length - 3] = "";
+      }
+    } else if (i === 0 && arrUnique[i] !== arrUnique[i - 1] + 1) {
+      newArr.push(arrUnique[i]);
+    } else {
+      newArr.push(",", arrUnique[i]);
     }
-    str = `${newArr[0]}_${newArr[newArr.length - 1]}`;
-    console.log(str);
-
+  }
+  return newArr.join("");
 }
 
-toRange([3, 5, 4, 6, 4, 7, 2, 5, 6, 9]);
+// console.log(toRange([3, 5, 4, 6, 4, 7, 2, 5, 6, 9, 11, 12, 13]));
+
+function toArray(str) {
+  if (!str) {
+    return [];
+  }
+  const newArr = str.split(",").map((e) => {
+    if (e.includes("_")) {
+      const eSplit = e.split("_");
+      let arr = [eSplit[0]];
+      for (let i = +eSplit[0]; i < +eSplit[1]; i++) {
+        arr.push(i + 1);
+      }
+      return arr.join(", ");
+    }
+    return e;
+  });
+  return newArr
+    .join(", ")
+    .split(", ")
+    .map((e) => +e);
+}
+
+// console.log(toArray(toRange([3, 5, 4, 6, 4, 7, 2, 5, 6, 9, 11, 12, 13])));
+
 // two sum
 // function twoSum(numbers, target) {
 //     const arr = [];
@@ -74,7 +106,6 @@ toRange([3, 5, 4, 6, 4, 7, 2, 5, 6, 9]);
 // }
 
 // console.log(sortArray([5, 3, 1, 8, 0]));
-
 
 // Sum of prime-indexed elements
 // function total(arr) {
@@ -149,7 +180,6 @@ toRange([3, 5, 4, 6, 4, 7, 2, 5, 6, 9]);
 // }
 
 // console.log(numObj([101,121,110,113,113,103]))
-
 
 // Magic Index
 // function findMagic(arr){
