@@ -1,3 +1,42 @@
+// JavaScript Array Filter
+function getEvenNumbers(numbersArray) {
+  return numbersArray.filter((e) => e % 2 === 0);
+}
+
+// Add property to every object in array
+let questions = [
+  {
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0,
+  },
+  {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0,
+  },
+];
+
+const addAnswer = (questions) => {
+  questions = questions.map((e) => (e.usersAnswer = null));
+};
+addAnswer(questions);
+console.log(questions);
+
+// Beginner - Lost Without a Map
+function maps(x) {
+  return x.map((e) => e * 2);
+}
+
+// Enumerable Magic #4 - True for None?
+function none(arr, fun) {
+  const vals = arr.reduce(
+    (acc, e) => (!fun(e) ? [...acc, true] : [...acc, false]),
+    [true]
+  );
+  return !vals.includes(false);
+}
+
 // Enumerable Magic #1 - True for All?
 function all(arr, fun) {
   return arr.reduce((acc, e) => (acc ? (acc = fun(e)) : (acc = false)), true);
