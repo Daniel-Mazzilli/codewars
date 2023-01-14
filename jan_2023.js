@@ -1,5 +1,47 @@
-// Reverse every other word in the string
+// Matrix Addition
 
+function matrixAddition(a, b) {
+  let result = [...a];
+  for (let i = 0; i < a.length; i++) {
+    for (let ii = 0; ii < a[i].length; ii++) {
+      result[i][ii] = a[i][ii] + b[i][ii];
+    }
+  }
+  return result;
+}
+
+matrixAddition(
+  [
+    [1, 2, 3],
+    [3, 2, 1],
+    [1, 1, 1],
+  ],
+  [
+    [2, 2, 1],
+    [3, 2, 3],
+    [1, 1, 3],
+  ]
+);
+
+// Grid index
+function gridIndex(grid, indices) {
+  const arr = grid.reduce((acc, e) => (acc = [...acc, ...e]), []);
+  let obj = {};
+  arr.forEach((e, i) => (obj[i + 1] = e));
+  let str = "";
+  indices.forEach((e) => (str += obj[e]));
+  return str;
+}
+
+gridIndex(
+  [
+    ["m", "y", "e"],
+    ["x", "a", "m"],
+    ["p", "l", "e"],
+  ],
+  [1, 3, 5, 8]
+);
+// Reverse every other word in the string
 function reverse(str) {
   return str
     .split(" ")
