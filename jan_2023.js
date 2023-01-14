@@ -1,3 +1,44 @@
+// Reverse every other word in the string
+
+function reverse(str) {
+  return str
+    .split(" ")
+    .filter((e) => e !== "")
+    .map((e, i) => (i % 2 !== 0 ? e.split("").reverse().join("") : e))
+    .join(" ");
+}
+
+// console.log(reverse("Reverse this   string, please!"));
+
+// Coding Meetup #6 - Higher-Order Functions Series - Can they code in the same language?
+function isSameLanguage(list) {
+  const language = list.reduce(
+    (acc, e) =>
+      !acc ? (acc = false) : acc === e.language ? e.language : false,
+    list[0].language
+  );
+  return language ? true : false;
+}
+
+// Sort Numbers
+function solution(nums) {
+  if (nums === null) {
+    return [];
+  }
+  return nums.sort((a, b) => {
+    // if (a < b) {
+    //   return -1;
+    // }
+    // if (a > b) {
+    //   return 1;
+    // }
+    // return 0;
+    return a - b;
+  });
+}
+
+// console.log(solution([1, 2, 10, 50, 5]));
+
 // JavaScript Array Filter
 function getEvenNumbers(numbersArray) {
   return numbersArray.filter((e) => e % 2 === 0);
@@ -21,7 +62,7 @@ const addAnswer = (questions) => {
   questions = questions.map((e) => (e.usersAnswer = null));
 };
 addAnswer(questions);
-console.log(questions);
+// console.log(questions);
 
 // Beginner - Lost Without a Map
 function maps(x) {
