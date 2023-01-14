@@ -1,16 +1,33 @@
-// two sum
-function twoSum(numbers, target) {
-    const arr = [];
-    for (let n1 = 0; n1 < numbers.length; n1++) {
-        for (let n2 = 0; n2 < numbers.length && n1 !== n2; n2++) {
-            if(numbers[n1] + numbers[n2] === target) {
-                arr.push(n1, n2);
-                return arr;
-            }
+// represent array of numbers as ranges
+function toRange(arr) {
+    const newArr = [];
+    let str = ``;
+    const arrSort = arr.sort((a, b) => a - b);
+    const arrUnique = [...new Set(arrSort)];
+    for (let i = 0; i < arrUnique.length; i++) {
+        if (arrUnique[i + 1] === arrUnique[i] + 1) {
+            newArr.push(arrUnique[i], arrUnique[i + 1]);
         }
     }
-    return arr;
+    str = `${newArr[0]}_${newArr[newArr.length - 1]}`;
+    console.log(str);
+
 }
+
+toRange([3, 5, 4, 6, 4, 7, 2, 5, 6, 9]);
+// two sum
+// function twoSum(numbers, target) {
+//     const arr = [];
+//     for (let n1 = 0; n1 < numbers.length; n1++) {
+//         for (let n2 = 0; n2 < numbers.length && n1 !== n2; n2++) {
+//             if(numbers[n1] + numbers[n2] === target) {
+//                 arr.push(n1, n2);
+//                 return arr;
+//             }
+//         }
+//     }
+//     return arr;
+// }
 
 // normalizing out of range array indexes
 // function normIndex(array, index) {
