@@ -1,5 +1,36 @@
-// Matrix Addition
+// Closest pair of points
+function closestPair(points) {
+  let smallestDistance = undefined;
+  let twoPoints = [[], []];
+  points.forEach((e, i) => {
+    points.forEach((ie, ii) => {
+      if (ii > i) {
+        const xDelta = e[0] - ie[0];
+        const yDelta = e[1] - ie[1];
+        const distance = Math.sqrt(xDelta * xDelta + yDelta * yDelta);
+        if (smallestDistance === undefined || smallestDistance > distance) {
+          smallestDistance = distance;
+          twoPoints = [e, ie];
+        }
+      }
+    });
+  });
+  return twoPoints;
+}
 
+const arr = [
+  [2, 2], // A
+  [2, 8], // B
+  [5, 5], // C
+  [6, 3], // D
+  [6, 7], // E
+  [7, 4], // F
+  [7, 8], // G
+];
+
+console.log(closestPair(arr));
+
+// Matrix Addition
 function matrixAddition(a, b) {
   let result = [...a];
   for (let i = 0; i < a.length; i++) {
