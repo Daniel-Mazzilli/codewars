@@ -1,3 +1,24 @@
+// Matrix Transpose
+function transpose(matrix) {
+  const newMatrix = [];
+  for (let i = 0; i < matrix[0].length; i++) {
+    newMatrix.push([]);
+  }
+  matrix.forEach((arr, i) => {
+    arr.forEach((e, ii) => {
+      newMatrix[ii][i] = e;
+    });
+  });
+  return newMatrix;
+}
+
+// console.log(
+//   transpose([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//   ])
+// );
+
 // Closest pair of points
 function closestPair(points) {
   let smallestDistance = undefined;
@@ -28,7 +49,7 @@ const arr = [
   [7, 8], // G
 ];
 
-console.log(closestPair(arr));
+// console.log(closestPair(arr));
 
 // Matrix Addition
 function matrixAddition(a, b) {
