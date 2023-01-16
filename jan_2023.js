@@ -1,3 +1,27 @@
+// Recursion Factorial
+const factorial = (n, x = 1) => {
+  let res = !n ? 1 : x * n;
+  if (n > 1) {
+    return factorial(n - 1, res);
+  }
+  return res;
+};
+
+// Factorial Factory
+// function factorial(n) {
+//   let counter = n;
+//   let result = 1;
+//   while (counter > 0) {
+//     result *= counter;
+//     counter--;
+//   }
+//   if (n < 0) {
+//     return null;
+//   }
+//   return result;
+// }
+
+console.log(factorial(5));
 // Matrix Transpose
 function transpose(matrix) {
   const newMatrix = [];
