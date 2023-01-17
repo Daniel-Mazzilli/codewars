@@ -1,3 +1,39 @@
+// Fibonacci Recursion
+const fibonacci = (n) => {
+  if (n === 1 || n === 2) {
+    return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
+
+// more complicated way
+// const fibonacci = (n, n1 = 1, n2 = 1, c = 3) => {
+//     if (n === 1 || n === 2) {
+//       return 1;
+//     }
+//     if (n === c) {
+//       return n1 + n2;
+//     }
+//     return fibonacci(n, n2, n1 + n2, c + 1);
+//   };
+
+// console.log(fibonacci(1));
+// console.log(fibonacci(2));
+// console.log(fibonacci(3));
+// console.log(fibonacci(4));
+// console.log(fibonacci(5));
+// console.log(fibonacci(6));
+// Recursive Replication
+function replicate(times, number, arr = []) {
+  if (times > 0) {
+    arr.push(number);
+    return replicate(times - 1, number, arr);
+  }
+  return arr;
+}
+
+// console.log(replicate(3, 5));
+
 // Recursion Factorial
 const factorial = (n, x = 1) => {
   let res = !n ? 1 : x * n;
@@ -21,7 +57,7 @@ const factorial = (n, x = 1) => {
 //   return result;
 // }
 
-console.log(factorial(5));
+// console.log(factorial(0));
 // Matrix Transpose
 function transpose(matrix) {
   const newMatrix = [];
