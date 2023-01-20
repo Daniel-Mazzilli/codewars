@@ -1,3 +1,39 @@
+// Sum of a sequence
+const sequenceSum = (begin, end, step) => {
+  if (begin > end) {
+    return 0;
+  }
+  const sequence = [begin];
+  let sum = begin;
+  while (sequence.at(-1) + step <= end) {
+    const val = sequence.at(-1) + step;
+    sequence.push(val);
+    sum += val;
+  }
+  return sum;
+};
+
+
+
+// console.log(sequenceSum(2, 6, 2));
+
+// Sum all the arrays
+function arraySum(arr) {
+  let sum = 0;
+  for (let e of arr) {
+    if (Array.isArray(e)) {
+      sum += arraySum(e);
+    }
+    if (typeof e === "number") {
+      sum += e;
+    }
+  }
+  return sum;
+}
+
+// console.log(arraySum([1, 2]));
+// console.log(arraySum([1, 2, [1, 2]]));
+
 // Fibonacci Recursion
 const fibonacci = (n) => {
   if (n === 1 || n === 2) {
