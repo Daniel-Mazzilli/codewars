@@ -1,3 +1,18 @@
+// Reverser
+function reverser(n) {
+  return n.charAt(1);
+}
+
+// console.log(reverser(123));
+
+// bubblesortOnce
+function bubblesortOnce(array) {
+  const val = array.reduce((acc, e) => (acc < e ? (acc = e) : acc));
+  return [...array.filter((e) => e !== val), val];
+}
+
+console.log(bubblesortOnce([9, 7, 5, 3, 1, 2, 4, 6, 8]));
+
 // Sum of a sequence
 const sequenceSum = (begin, end, step) => {
   if (begin > end) {
@@ -12,8 +27,6 @@ const sequenceSum = (begin, end, step) => {
   }
   return sum;
 };
-
-
 
 // console.log(sequenceSum(2, 6, 2));
 
