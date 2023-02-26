@@ -1,3 +1,79 @@
+// Greatest common divisor --> Need to optimize for kata
+function mygcd(x, y) {
+  for (let i = x > y ? y : x; i > 0; i--) {
+    if ((x % i) + (y % i) === 0) {
+      return i;
+    }
+  }
+}
+
+// console.log(mygcd(36, 12));
+
+// Basic Compression
+const compress = (str) => {
+  const newArr = [];
+  str.split("").reduce((acc, e, i, a) => {
+    if (i === 0) {
+      acc = 1;
+    } else if (e === a[i - 1]) {
+      acc += 1;
+    } else if (e !== a[i - 1]) {
+      newArr.push([acc, `"${a[i - 1]}"`]);
+      acc = 1;
+    }
+
+    if (i === a.length - 1) {
+      newArr.push([acc, `"${e}"`]);
+    }
+
+    return acc;
+  }, 0);
+
+  return "[[" + newArr.join("],[") + "]]";
+};
+
+const decompress = () => {};
+
+const string = "aaaaaaaabaaaa";
+
+console.log(compress(string));
+
+// Rock Paper Scissors Lizard Spock
+function rpsls(pl1, pl2) {
+  const res1 = "Player 1 Won!";
+  const res2 = "Player 2 Won!";
+  const res3 = "Draw!";
+  const combinations = {
+    scissors: {
+      paper: res1,
+      lizard: res1,
+    },
+    paper: {
+      rock: res1,
+      spock: res1,
+    },
+    rock: {
+      lizard: res1,
+      scissors: res1,
+    },
+    lizard: {
+      spock: res1,
+      paper: res1,
+    },
+    spock: {
+      scissors: res1,
+      rock: res1,
+    },
+  };
+
+  if (pl1 === pl2) {
+    return res3;
+  }
+  return combinations[pl1][pl2] ? combinations[pl1][pl2] : res2;
+}
+
+// console.log(rpsls("Lizard", "Rock"))
+
 // wave
 function wave(str) {
   const arr = [];
@@ -10,7 +86,7 @@ function wave(str) {
   return arr;
 }
 
-console.log(wave("hello world"));
+// console.log(wave("hello world"));
 
 // No ifs no buts
 function noIfsNoButs(a, b) {
