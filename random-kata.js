@@ -29,14 +29,33 @@ const compress = (str) => {
     return acc;
   }, 0);
 
-  return "[[" + newArr.join("],[") + "]]";
+  const compressed = "[[" + newArr.join("],[") + "]]";
+  return compressed.length < str.length ? compressed : str;
 };
 
-const decompress = () => {};
+const decompress = (str) => {
+  let newStr = "";
+  if (str.includes("[")) {
+    str
+      .substring(2, str.length - 2)
+      .split("],[")
+      .forEach((e) => {
+        const pair = e.split(",");
+        for (let i = 0; i < pair[0]; i++) {
+          newStr += pair[1].replaceAll('"', "");
+        }
+      });
+  }
+  return newStr !== "" ? newStr : str;
+};
 
 const string = "aaaaaaaabaaaa";
+const string1 = "aaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaa";
+const string2 = "abcde";
 
-console.log(compress(string));
+// console.log(compress(string2));
+console.log(decompress('[[26,"a"],[1,"b"],[18,"a"]]'));
+console.log(decompress("abcde"));
 
 // Rock Paper Scissors Lizard Spock
 function rpsls(pl1, pl2) {
