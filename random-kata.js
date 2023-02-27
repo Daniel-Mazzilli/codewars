@@ -40,22 +40,22 @@ const decompress = (str) => {
       .substring(2, str.length - 2)
       .split("],[")
       .forEach((e) => {
-        const pair = e.split(",");
-        for (let i = 0; i < pair[0]; i++) {
-          newStr += pair[1].replaceAll('"', "");
+        const index = e.indexOf(",")
+        for (let i = 0; i < e.substring(0, index); i++) {
+          newStr += e.substring(index+2, e.length-1);
         }
       });
   }
   return newStr !== "" ? newStr : str;
 };
 
-const string = "aaaaaaaabaaaa";
-const string1 = "aaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaa";
-const string2 = "abcde";
+// const string = "aaaaaaaabaaaa";
+// const string1 = "aaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaa";
+// const string2 = "abcde";
 
 // console.log(compress(string2));
-console.log(decompress('[[26,"a"],[1,"b"],[18,"a"]]'));
-console.log(decompress("abcde"));
+// console.log(decompress('[[26,"a"],[1,"b"],[18,"a"]]'));
+// console.log(decompress("abcde"));
 
 // Rock Paper Scissors Lizard Spock
 function rpsls(pl1, pl2) {
