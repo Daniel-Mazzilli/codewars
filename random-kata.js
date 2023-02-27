@@ -9,6 +9,12 @@ function mygcd(x, y) {
 
 // console.log(mygcd(36, 12));
 
+// Be Concise IV - Index of an element in an array
+const find = (arr, el) => {
+  const i = arr.indexOf(el);
+  return i < 0? "Not found" : i;
+}
+
 // Guess Number
 const guessWhat = (n) => {
   if (n === 1) {
@@ -41,7 +47,7 @@ const guessWhat = (n) => {
     add ? arr.push(i) : null;
   }
   const noDuplicates = [...new Set(arr)];
-  return noDuplicates.length
+  return noDuplicates.length;
 };
 
 console.log(guessWhat(37));
