@@ -9,6 +9,45 @@ function mygcd(x, y) {
 
 // console.log(mygcd(36, 12));
 
+// Guess Number
+const guessWhat = (n) => {
+  if (n === 1) {
+    return 0;
+  }
+
+  const arr = [];
+  for (let i = 2; i <= n; i++) {
+    if (arr.length < 4) {
+      arr.push(i);
+      continue;
+    }
+
+    let add = true;
+
+    for (let i2 of arr) {
+      for (let num = i2 * i2; num <= i; num *= i2) {
+        if (num === i) {
+          arr.push(i);
+          add = false;
+        }
+      }
+      for (let i3 of arr) {
+        if (i2 !== i3 && i % (i2 * i3) === 0) {
+          add = false;
+        }
+      }
+    }
+
+    add ? arr.push(i) : null;
+  }
+  const noDuplicates = [...new Set(arr)];
+  return noDuplicates.length
+};
+
+console.log(guessWhat(37));
+console.log(guessWhat(211));
+console.log(guessWhat(557));
+
 // Basic Compression
 const compress = (str) => {
   const newArr = [];
@@ -40,9 +79,9 @@ const decompress = (str) => {
       .substring(2, str.length - 2)
       .split("],[")
       .forEach((e) => {
-        const index = e.indexOf(",")
+        const index = e.indexOf(",");
         for (let i = 0; i < e.substring(0, index); i++) {
-          newStr += e.substring(index+2, e.length-1);
+          newStr += e.substring(index + 2, e.length - 1);
         }
       });
   }
