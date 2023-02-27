@@ -9,6 +9,19 @@ function mygcd(x, y) {
 
 // console.log(mygcd(36, 12));
 
+// Sum a list but ignore any duplicates
+function sumNoDuplicates(numList) {
+  const newList = [];
+  numList.forEach(e => {
+    if(numList.filter(el => el === e).length < 2){
+      newList.push(e)
+    }
+  })
+  return newList.reduce((acc, e) => acc += e, 0)
+}
+
+// console.log(sumNoDuplicates([1, 1, 2, 3]))
+
 // Be Concise IV - Index of an element in an array
 const find = (arr, el) => {
   const i = arr.indexOf(el);
