@@ -9,6 +9,11 @@ function mygcd(x, y) {
 
 // console.log(mygcd(36, 12));
 
+// Reverse words
+function reverseWords(str) {
+  return str.split(" ").map(e=>e.split("").reverse().join("")).join(" ")
+}
+
 // Sum a list but ignore any duplicates
 function sumNoDuplicates(numList) {
   const newList = [];
