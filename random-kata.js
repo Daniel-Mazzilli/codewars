@@ -9,20 +9,148 @@ function mygcd(x, y) {
 
 // console.log(mygcd(36, 12));
 
+// Digital cypher
+function encode(str, n) {
+  return str
+    .split("")
+    .map(
+      (e, i) =>
+        e.charCodeAt(0) - 96 + +n.toString().at(i % (n.toString().length))
+    );
+}
+
+// console.log(encode("scout", 1939));
+
+// Decoding a message
+function decode(message) {
+  return message
+    .split(" ")
+    .map((e) =>
+      e
+        .split("")
+        .map((l) =>
+          String.fromCharCode(
+            l.charCodeAt(0) > 109
+              ? 122 - l.charCodeAt(0) + 97
+              : 122 - (l.charCodeAt(0) - 97)
+          )
+        )
+        .join("")
+    )
+    .join(" ");
+}
+
+// console.log(decode("r slkv mlylwb wvxlwvh gsrh nvhhztv"));
+
+// Reverser
+function reverse(n) {}
+// console.log(reverse(123))
+
+// Club Doorman
+function passTheDoorMan(word) {
+  return (
+    (word
+      .toLowerCase()
+      .split("")
+      .find((e, i, a) => e === a[i - 1])
+      .charCodeAt(0) -
+      96) *
+    3
+  );
+}
+
+// console.log(passTheDoorMan("yaas"));
+
+// The Barksdale Code
+function decode1(string) {
+  const pairs = {
+    1: 9,
+    2: 8,
+    3: 7,
+    4: 6,
+    5: 0,
+    6: 4,
+    7: 3,
+    8: 2,
+    9: 1,
+    0: 5,
+  };
+
+  return string
+    .split("")
+    .map((e) => pairs[e])
+    .join("");
+}
+
+// console.log(decode1("4103432323"));
+
+// Even or Odd
+function evenOrOdd(number) {
+  return number % 2 ? "Odd" : "Even";
+}
+
+// Is n divisible by x and y?
+function isDivisible(n, x, y) {
+  return (n % x) + (n % y) === 0 ? true : false;
+}
+
+// Square(n) Sum
+function squareSum(numbers) {
+  return numbers.reduce((acc, e) => (acc += e * e), 0);
+}
+
+// Hello world
+const greet = () => {
+  return "hello world!";
+};
+
+// Power
+function numberToPower(number, power) {
+  let finVal = number;
+  for (let i = power; i > 1; i--) {
+    finVal *= number;
+  }
+  return power > 0 ? finVal : 1;
+}
+
+// Be Concise I - Ternary
+function describeAge(age) {
+  return (
+    "You're a(n) " +
+    (age > 64 ? "elderly" : age > 17 ? "adult" : age > 12 ? "teenager" : "kid")
+  );
+}
+
+// Determine off spring sex
+function chromosomeCheck(sperm) {
+  return (
+    "Congratulations! You're going to have a " +
+    (sperm.includes("Y") ? "son." : "daughter.")
+  );
+}
+
+// Counting sheep...
+function countSheeps(arrayOfSheep) {
+  return arrayOfSheep.filter((e) => e === true).length;
+}
+
 // Reverse words
 function reverseWords(str) {
-  return str.split(" ").map(e=>e.split("").reverse().join("")).join(" ")
+  return str
+    .split(" ")
+    .map((e) => e.split("").reverse().join(""))
+    .join(" ");
 }
 
 // Sum a list but ignore any duplicates
 function sumNoDuplicates(numList) {
   const newList = [];
-  numList.forEach(e => {
-    if(numList.filter(el => el === e).length < 2){
-      newList.push(e)
+  numList.forEach((e) => {
+    if (numList.filter((el) => el === e).length < 2) {
+      newList.push(e);
     }
-  })
-  return newList.reduce((acc, e) => acc += e, 0)
+  });
+  return newList.reduce((acc, e) => (acc += e), 0);
 }
 
 // console.log(sumNoDuplicates([1, 1, 2, 3]))
@@ -30,8 +158,8 @@ function sumNoDuplicates(numList) {
 // Be Concise IV - Index of an element in an array
 const find = (arr, el) => {
   const i = arr.indexOf(el);
-  return i < 0? "Not found" : i;
-}
+  return i < 0 ? "Not found" : i;
+};
 
 // Guess Number
 const guessWhat = (n) => {
@@ -68,9 +196,9 @@ const guessWhat = (n) => {
   return noDuplicates.length;
 };
 
-console.log(guessWhat(37));
-console.log(guessWhat(211));
-console.log(guessWhat(557));
+// console.log(guessWhat(37));
+// console.log(guessWhat(211));
+// console.log(guessWhat(557));
 
 // Basic Compression
 const compress = (str) => {
