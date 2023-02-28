@@ -9,13 +9,82 @@ function mygcd(x, y) {
 
 // console.log(mygcd(36, 12));
 
+// Reverser
+function reverse(n) {}
+// console.log(reverse(123))
+
+// Convert a Number to a String!
+function numberToString(num) {
+  return num.toString();
+}
+
+// Return negative
+function makeNegative(num) {
+  return num < 0 ? num : num * -1;
+}
+
+// Training JS #7: if..else and ternary operator
+function saleHotdogs(n) {
+  return n * (n < 5 ? 100 : n < 10 ? 95 : 90);
+}
+
+//Keep Hydrated!
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
+
+// Price of Mangoes
+function mango(quantity, price) {
+  return (quantity - Math.floor(quantity / 3)) * price;
+}
+
+// Unfinished Loop - Bug Fixing #1
+function createArray(number) {
+  const newArray = [];
+
+  for (let counter = 1; counter <= number; counter++) {
+    newArray.push(counter);
+  }
+
+  return newArray;
+}
+
+// Add Length
+function addLength(str) {
+  return str.split(" ").map((e) => `${e} ${e.length}`);
+}
+
+//Reversed Strings
+function solution(str) {
+  return str.split("").reverse().join("");
+}
+
+// return to sanity
+function mystery() {
+  return { sanity: "Hello" };
+}
+
+// ASCII Total
+function uniTotal(string) {
+  return string.split("").reduce((acc, e) => (acc += e.charCodeAt(0)), 0);
+}
+
+// basic encryption
+function encrypt(text, rule) {
+  return text
+    .split("")
+    .map((e) => String.fromCharCode((e.charCodeAt(0) + rule) % 256))
+    .join("");
+}
+
+// console.log(encrypt("abc", 2));
+
 // Digital cypher
 function encode(str, n) {
   return str
     .split("")
     .map(
-      (e, i) =>
-        e.charCodeAt(0) - 96 + +n.toString().at(i % (n.toString().length))
+      (e, i) => e.charCodeAt(0) - 96 + +n.toString().at(i % n.toString().length)
     );
 }
 
@@ -41,10 +110,6 @@ function decode(message) {
 }
 
 // console.log(decode("r slkv mlylwb wvxlwvh gsrh nvhhztv"));
-
-// Reverser
-function reverse(n) {}
-// console.log(reverse(123))
 
 // Club Doorman
 function passTheDoorMan(word) {
