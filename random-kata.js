@@ -13,6 +13,80 @@ function mygcd(x, y) {
 function reverse(n) {}
 // console.log(reverse(123))
 
+//Remove First and Last Character
+function removeChar(str) {
+  return str.substring(1, str.length - 1);
+}
+
+// Opposite number
+function opposite(number) {
+  return -number;
+}
+
+// Caesar Cipher Encryption - Variation
+function caesarEncode(phrase, shift) {
+  return phrase
+    .split(" ")
+    .map((e, i) =>
+      e
+        .split("")
+        .map((el) =>
+          String.fromCharCode(97 + ((el.charCodeAt(0) - 97 + shift + i) % 26))
+        )
+        .join("")
+    )
+    .join(" ");
+}
+
+// console.log(caesarEncode("alea iacta est", 3));
+// console.log(caesarEncode("conquer et impera", 13));
+
+// Sum of positive
+function positiveSum(arr) {
+  return arr.reduce((acc, el) => (el > 0 ? (acc += el) : acc), 0);
+}
+
+// Encrypt this!
+const encryptThis = (text) => {
+  return text
+    .split(" ")
+    .map((e) => {
+      const elArr = e.split("");
+      if (elArr.length > 1) {
+        elArr[1] = e[e.length - 1];
+        elArr[e.length - 1] = e[1];
+      }
+      elArr[0] = e.charCodeAt(0);
+      return elArr.join("");
+    })
+    .join(" ");
+};
+
+// Decipher this!
+function decipherThis(str) {
+  const arr = str.split(" ");
+  return arr
+    .map(
+      (e) =>
+        e
+          .split("")
+          .reduce((acc, el, i) =>
+            el.charCodeAt(0) < 58 ? (acc = e.substring(0, i + 1)) : acc
+          ),
+      ""
+    )
+    .map((e, i) => {
+      const newEl = arr[i].replace(e, String.fromCharCode(e));
+      const newArr = newEl.split("");
+      newArr[1] = newEl[newEl.length - 1];
+      newArr[newEl.length - 1] = newEl[1];
+      return newArr.join("");
+    })
+    .join(" ");
+}
+
+// console.log(decipherThis("72olle 103doo 100ya"));
+
 // Convert a Number to a String!
 function numberToString(num) {
   return num.toString();
