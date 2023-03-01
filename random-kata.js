@@ -13,6 +13,16 @@ function mygcd(x, y) {
 function reverse(n) {}
 // console.log(reverse(123))
 
+// Century From Year
+function century(year) {
+  return Math.ceil(year / 100);
+}
+
+// Remove String Spaces
+function noSpace(x) {
+  return x.replaceAll(" ", "");
+}
+
 //Remove First and Last Character
 function removeChar(str) {
   return str.substring(1, str.length - 1);
