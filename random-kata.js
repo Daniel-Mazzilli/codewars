@@ -14,8 +14,15 @@ function mygcd(x, y) {
 function reverse(n) {}
 // console.log(reverse(123))
 
-// Ragbaby cipher
+// Abbreviate a Two Word Name
+function abbrevName(name) {
+  return name
+    .split(" ")
+    .map((e) => e.charAt(0).toUpperCase())
+    .join(".");
+}
 
+// Ragbaby cipher
 function encode(text, key) {
   // build keyed alphabet
   const kAlphabet = [...new Set(key.split(""))];

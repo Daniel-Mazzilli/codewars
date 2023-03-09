@@ -7,8 +7,32 @@ function reverser(n) {
 
 // bubblesortOnce
 function bubblesortOnce(array) {
-  const val = array.reduce((acc, e) => (acc < e ? (acc = e) : acc));
-  return [...array.filter((e) => e !== val), val];
+  // const val = array.reduce((acc, e) => (acc < e ? (acc = e) : acc));
+  // return [...array.filter((e) => e !== val), val];
+
+  let val = array[0];
+  return array.map((e, i, a) => {
+    if (i === a.length - 1) {
+      return val;
+    }
+    if (val === e) {
+      if (val <= a[i + 1]) {
+        val = a[i+1]
+        return e;
+      } else {
+        return a[i + 1];
+      }
+    }
+    if (val !== e) {
+      if (val <= a[i + 1]) {
+        const val2 = val;
+        val = a[i + 1];
+        return val2;
+      } else {
+        return a[i + 1];
+      }
+    }
+  });
 }
 
 console.log(bubblesortOnce([9, 7, 5, 3, 1, 2, 4, 6, 8]));
