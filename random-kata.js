@@ -1,4 +1,5 @@
 // Greatest common divisor --> Need to optimize for kata
+// square root
 function mygcd(x, y) {
   for (let i = x > y ? y : x; i > 0; i--) {
     if ((x % i) + (y % i) === 0) {
@@ -12,6 +13,77 @@ function mygcd(x, y) {
 // Reverser
 function reverse(n) {}
 // console.log(reverse(123))
+
+// Ragbaby cipher
+
+function encode(text, key) {
+  // build keyed alphabet
+  const kAlphabet = [...new Set(key.split(""))];
+  // 97-122 => a-z
+  for (let i = 97; i < 123; i++) {
+    if (!kAlphabet.includes(String.fromCharCode(i))) {
+      kAlphabet.push(String.fromCharCode(i));
+    }
+  }
+
+  let pos = 0;
+  const encrypted = text
+    .split("")
+    .map((e) => {
+      if (kAlphabet.indexOf(e) !== -1) {
+        pos += 1;
+        return kAlphabet[(kAlphabet.indexOf(e) + pos) % 26];
+      }
+      if (kAlphabet.indexOf(e.toLowerCase()) !== -1) {
+        pos += 1;
+        return kAlphabet[
+          (kAlphabet.indexOf(e.toLowerCase()) + pos) % 26
+        ].toUpperCase();
+      }
+      pos = 0;
+      return e;
+    })
+    .join("");
+
+  return encrypted;
+}
+
+function decode(text, key) {
+  // build keyed alphabet
+  const kAlphabet = [...new Set(key.split(""))];
+  // 97-122 => a-z
+  for (let i = 97; i < 123; i++) {
+    if (!kAlphabet.includes(String.fromCharCode(i))) {
+      kAlphabet.push(String.fromCharCode(i));
+    }
+  }
+
+  kAlphabet.reverse();
+
+  let pos = 0;
+  const decoded = text
+    .split("")
+    .map((e) => {
+      if (kAlphabet.indexOf(e) !== -1) {
+        pos += 1;
+        return kAlphabet[(kAlphabet.indexOf(e) + pos) % 26];
+      }
+      if (kAlphabet.indexOf(e.toLowerCase()) !== -1) {
+        pos += 1;
+        return kAlphabet[
+          (kAlphabet.indexOf(e.toLowerCase()) + pos) % 26
+        ].toUpperCase();
+      }
+      pos = 0;
+      return e;
+    })
+    .join("");
+
+  return decoded;
+}
+
+console.log(encode("This is an example.", "cccciiiiippphheeeeerrrrr"));
+console.log(decode("Urew pu bq rzfsbtj.", "cipher"));
 
 // Century From Year
 function century(year) {
@@ -164,34 +236,38 @@ function encrypt(text, rule) {
 // console.log(encrypt("abc", 2));
 
 // Digital cypher
-function encode(str, n) {
-  return str
-    .split("")
-    .map(
-      (e, i) => e.charCodeAt(0) - 96 + +n.toString().at(i % n.toString().length)
-    );
-}
+
+// commented out same name function
+// function encode(str, n) {
+//   return str
+//     .split("")
+//     .map(
+//       (e, i) => e.charCodeAt(0) - 96 + +n.toString().at(i % n.toString().length)
+//     );
+// }
 
 // console.log(encode("scout", 1939));
 
 // Decoding a message
-function decode(message) {
-  return message
-    .split(" ")
-    .map((e) =>
-      e
-        .split("")
-        .map((l) =>
-          String.fromCharCode(
-            l.charCodeAt(0) > 109
-              ? 122 - l.charCodeAt(0) + 97
-              : 122 - (l.charCodeAt(0) - 97)
-          )
-        )
-        .join("")
-    )
-    .join(" ");
-}
+
+// commented out same name function
+// function decode(message) {
+//   return message
+//     .split(" ")
+//     .map((e) =>
+//       e
+//         .split("")
+//         .map((l) =>
+//           String.fromCharCode(
+//             l.charCodeAt(0) > 109
+//               ? 122 - l.charCodeAt(0) + 97
+//               : 122 - (l.charCodeAt(0) - 97)
+//           )
+//         )
+//         .join("")
+//     )
+//     .join(" ");
+// }
 
 // console.log(decode("r slkv mlylwb wvxlwvh gsrh nvhhztv"));
 
