@@ -7,9 +7,6 @@ function reverser(n) {
 
 // bubblesortOnce
 function bubblesortOnce(array) {
-  // const val = array.reduce((acc, e) => (acc < e ? (acc = e) : acc));
-  // return [...array.filter((e) => e !== val), val];
-
   let val = array[0];
   return array.map((e, i, a) => {
     if (i === a.length - 1) {
