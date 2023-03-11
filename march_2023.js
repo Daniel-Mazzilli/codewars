@@ -3,6 +3,64 @@ function lookAndSay(data, len) {}
 
 // console.log(lookAndSay("1", 5));
 
+// Shortest Word
+function findShort(s) {
+  return s
+    .split(" ")
+    .reduce(
+      (acc, e, i) => (i < 1 ? e.length : e.length < acc ? e.length : acc),
+      0
+    );
+}
+
+// Descending Order
+function descendingOrder(n) {
+  return +n
+    .toString()
+    .split("")
+    .sort((a, b) => b - a)
+    .join("");
+}
+
+// Sum Arrays
+function sum(numbers) {
+  return numbers.reduce((acc, e) => (acc += e), 0);
+}
+
+// Beginner - Reduce but Grow
+function grow(x) {
+  return x.reduce((acc, e) => (acc *= e));
+}
+
+// Find Maximum and Minimum Values of a List
+const min = (list) => {
+  return Math.min(...list);
+};
+
+const max = (list) => {
+  return Math.max(...list);
+};
+
+// Convert a Boolean to a String
+function booleanToString(b) {
+  return b ? "true" : "false";
+}
+
+// You Can't Code Under Pressure #1
+function doubleInteger(i) {
+  return i * 2;
+}
+
+//Beginner Series #1 School Paperwork
+function paperwork(n, m) {
+  return n > 0 && m > 0 ? n * m : 0;
+}
+
+// MakeUpperCase
+function makeUpperCase(str) {
+  return str.toUpperCase();
+}
+
 // How many lightsabers do you own?
 function howManyLightsabersDoYouOwn(name) {
   return name === "Zach" ? 18 : 0;
