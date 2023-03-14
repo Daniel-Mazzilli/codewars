@@ -1,9 +1,83 @@
-// Reverser
-function reverser(n) {
-  return n.charAt(1);
+// Is he gonna survive?
+function hero(bullets, dragons) {
+  return bullets / 2 >= dragons;
 }
 
-// console.log(reverser(123));
+// Who likes it?
+function likes(names) {
+  if (names.length < 1) {
+    return "no one likes this";
+  }
+  if (names.length === 1) {
+    return `${names[0]} likes this`;
+  }
+  if (names.length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  }
+  if (names.length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  }
+  if (names.length > 3) {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+  }
+}
+
+// Multiples of 3 or 5
+function solution(number) {
+  if (number > 0) {
+    let acc = 0;
+    let i = number - 1;
+    while (i > 0) {
+      if (i % 3 === 0 || i % 5 === 0) {
+        acc += i;
+      }
+      i--;
+    }
+    return acc;
+  }
+  return 0;
+}
+
+// Will you make it?
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  return distanceToPump <= mpg * fuelLeft;
+};
+
+// Moving Zeros To The End
+function moveZeros(arr) {
+  const newArr = [];
+  const zeroArr = [];
+
+  arr.forEach((e) => (e === 0 ? zeroArr.push(e) : newArr.push(e)));
+
+  return [...newArr, ...zeroArr];
+}
+
+// Simple Pig Latin
+function pigIt(str) {
+  const arr = str.split(" ");
+  const newArr = arr.map((e) => {
+    if (
+      (e.length === 1 && e.toLowerCase().charCodeAt() < 97) ||
+      e.toLowerCase().charCodeAt() > 122
+    ) {
+      return e;
+    }
+    return e.slice(1) + e.charAt(0) + "ay";
+  });
+  return newArr.join(" ");
+}
+
+// Reverser use recursion
+function reverser(n, res = 0) {
+  if (n === 0) {
+    return res;
+  }
+
+  return reverser((n - (n % 10)) / 10, res * 10 + (n % 10));
+}
+
+// console.log(reverser(1234));
 
 // bubblesortOnce
 function bubblesortOnce(array) {
@@ -14,7 +88,7 @@ function bubblesortOnce(array) {
     }
     if (val === e) {
       if (val <= a[i + 1]) {
-        val = a[i+1]
+        val = a[i + 1];
         return e;
       } else {
         return a[i + 1];
@@ -32,7 +106,7 @@ function bubblesortOnce(array) {
   });
 }
 
-console.log(bubblesortOnce([9, 7, 5, 3, 1, 2, 4, 6, 8]));
+// console.log(bubblesortOnce([9, 7, 5, 3, 1, 2, 4, 6, 8]));
 
 // Sum of a sequence
 const sequenceSum = (begin, end, step) => {
