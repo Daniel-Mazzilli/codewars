@@ -1,3 +1,49 @@
+// Calculate BMI
+function bmi(weight, height) {
+  const bmiVal = weight / (height * height);
+  if (bmiVal <= 18.5) {
+    return "Underweight";
+  }
+  if (bmiVal <= 25) {
+    return "Normal";
+  }
+  if (bmiVal <= 30) {
+    return "Overweight";
+  }
+  return "Obese";
+}
+
+// Array.diff
+function arrayDiff(a, b) {
+  const newArr = [];
+  a.forEach((e) => (!b.includes(e) ? newArr.push(e) : null));
+  return newArr;
+}
+
+// Sum of Digits / Digital Root
+function digitalRoot(n) {
+  if (n < 10) {
+    return n;
+  }
+
+  const sum = n
+    .toString()
+    .split("")
+    .reduce((acc, e) => (acc += +e), 0);
+  return digitalRoot(sum);
+}
+
+// If you can't sleep, just count sheep!!
+const countSheep = (num) => {
+  let str = "";
+  let count = 1;
+  while (count <= num) {
+    str += count.toString() + " sheep...";
+    count++;
+  }
+  return str;
+};
+
 // Is he gonna survive?
 function hero(bullets, dragons) {
   return bullets / 2 >= dragons;
