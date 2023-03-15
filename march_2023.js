@@ -3,6 +3,41 @@ function lookAndSay(data, len) {}
 
 // console.log(lookAndSay("1", 5));
 
+// Recursion 101
+function solve(a, b) {
+  // step I
+  if (a * b === 0) {
+    return [a, b];
+  }
+  // step II
+  if (a >= 2 * b) {
+    a = a - 2 * b;
+    return solve(a, b);
+  }
+  /// step III
+  if (b >= 2 * a) {
+    b = b - 2 * a;
+    return solve(a, b);
+  }
+  return [a, b];
+}
+
+// Tribonacci Sequence
+function tribonacci(signature, n, max = n, output = []) {
+  if (output.length === max) {
+    return output;
+  }
+  if (max - n < 3) {
+    output.push(signature[max - n]);
+  } else {
+    output.push(output.at(-3) + output.at(-2) + output.at(-1));
+  }
+
+  return tribonacci(signature, n - 1, max, output);
+}
+
+// console.log(tribonacci([0, 1, 2], 10));
+
 // Shortest Word
 function findShort(s) {
   return s
