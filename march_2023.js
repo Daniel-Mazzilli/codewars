@@ -5,6 +5,101 @@ const divCon = (arr) => {
   );
 };
 
+// recursive countdown
+function countdown(times) {
+  return [0];
+}
+
+// console.log(countdown([1]))
+
+// Linked Lists - Push & BuildOneTwoThree
+function Node(data) {
+  this.data = data;
+  this.next = null;
+}
+
+function push(head, data) {
+  // Go.
+  const newNode = new Node(data);
+  newNode.next = head;
+  return newNode;
+}
+
+function buildOneTwoThree() {
+  // Go.
+  // let newNode3 = new Node(3);
+  // let newNode2 = new Node(2);
+  // let newNode1 = new Node(1);
+  // newNode2.next = newNode3;
+  // newNode1.next = newNode2;
+  // return newNode1;
+  return push(push(new Node(3), 2), 1)
+}
+console.log(buildOneTwoThree());
+
+// array plus array
+function arrayPlusArray(arr1, arr2) {
+  return arr1.reduce((acc, e, i) => (acc += e + arr2[i]), 0);
+}
+
+// Potion Class 101
+class Potion {
+  constructor(color, volume) {
+    this.color = color;
+    this.volume = volume;
+  }
+  mix(item) {
+    const newColor = this.color.map((e, i) =>
+      Math.ceil(
+        (e * this.volume + item.color[i] * item.volume) /
+          (this.volume + item.volume)
+      )
+    );
+    return new Potion(newColor, this.volume + item.volume);
+  }
+}
+
+// recursive averages SOLVED
+// Array.prototype.average = function () {
+//   return (
+//     this.reduce((acc, e) => {
+//       if (Array.isArray(e)) {
+//         return (acc += e.average());
+//       }
+
+//       return (acc += parseFloat(e));
+//     }, 0) / this.length
+//   );
+// };
+
+// Arrays in Arrays to Objects within Objects DRAFT
+// function arrayToObject(array) {
+//   for(let i = 0; i < array.length; i ++){
+//     if(Array.isArray(array[i])){
+//       return arrayToObject(array[i])
+//     } else {
+//       return {[array[i]] : Array.isArray(array[i+1]) ? arrayToObject(array[i+1]) : array[i+1]}
+//     }
+//   }
+// }
+
+function arrayToObject(array, obj = {}) {
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      return arrayToObject(array[i]);
+    }
+    obj = { ...obj, [array[0]]: array[1] };
+  }
+  return obj;
+}
+
+// console.log(
+//   arrayToObject([
+//     [1, 2],
+//     ["a", 2],
+//   ])
+// );
+
 // Look and say numbers
 function lookAndSay(data, len, arr = []) {
   if (len < 1) {
