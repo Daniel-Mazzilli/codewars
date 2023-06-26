@@ -3,6 +3,110 @@ function Node(data) {
   this.next = null;
 }
 
+// Linked Lists - Front Back Split
+function frontBackSplit(source, front, back) {
+  let length = 0;
+  let current = source;
+  while (current) {
+    length++;
+    current = current.next;
+  }
+  if (length < 2) {
+    throw new Error("Invalid source length!");
+  }
+  const pivot = Math.ceil(length / 2);
+  let currentFront = front;
+  let currentBack = back;
+  length = 0;
+  current = source;
+  while (current) {
+    if (length < pivot) {
+      if (!front.data) {
+        front.data = current.data;
+      } else {
+        currentFront.next = new Node(current.data);
+        currentFront = currentFront.next;
+      }
+    } else {
+      if (!back.data) {
+        back.data = current.data;
+      } else {
+        currentBack.next = new Node(current.data);
+        currentBack = currentBack.next;
+      }
+    }
+    length++;
+    current = current.next;
+  }
+}
+
+// Chuck Norris VII - True or False? (Beginner)
+function ifChuckSaysSo() {
+  return !true;
+}
+
+// Find Nearest square number
+function nearestSq(n) {
+  return Math.pow(Math.round(Math.sqrt(n)), 2);
+}
+
+// Linked Lists - Alternating Split
+function Context(first, second) {
+  this.first = first;
+  this.second = second;
+}
+
+function alternatingSplit(head) {
+  // Remember to return the context.
+  if (!head) {
+    throw new Error("Invalid head!");
+  }
+  let count = 0;
+  let current = head;
+  let firstHead;
+  let secondHead;
+  let currentFirst;
+  let currentSecond;
+  while (current) {
+    if (count % 2 === 0) {
+      if (!firstHead) {
+        firstHead = new Node(current.data);
+        currentFirst = firstHead;
+      } else {
+        currentFirst.next = new Node(current.data);
+        currentFirst = currentFirst.next;
+      }
+    } else {
+      if (!secondHead) {
+        secondHead = new Node(current.data);
+        currentSecond = secondHead;
+      } else {
+        currentSecond.next = new Node(current.data);
+        currentSecond = currentSecond.next;
+      }
+    }
+    current = current.next;
+    count++;
+  }
+  if (!firstHead || !secondHead) {
+    throw new Error("Single node list!");
+  }
+  return new Context(firstHead, secondHead);
+}
+
+function updateLight(current) {
+  return current === "green"
+    ? "yellow"
+    : current === "yellow"
+    ? "red"
+    : "green";
+}
+
+// Contamination #1 -String-
+function contamination(text, char) {
+  return char.repeat(text.length);
+}
+
 // Implementing a Queue && Implementing a Queue - Performance Version
 class Queue {
   constructor() {
@@ -175,5 +279,3 @@ const linkedList = {
     },
   },
 };
-
-console.log(insertNth(linkedList));
